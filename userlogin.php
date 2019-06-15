@@ -17,8 +17,8 @@ $email = $obj['email'];
 
 $password = $obj['password'];
 
-if ($email == null){
-$Inserted = "Successfully Inserted";
+if ($email == null || $password == null){
+$Inserted = "All Fields are Required";
 
 $InsertedJson = json_encode ($Inserted);
 
