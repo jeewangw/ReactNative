@@ -8,7 +8,7 @@ export default class App extends React.Component {
 
 state={
   Useremail:'',
-  password:'',
+  Userpassword:'',
   image: null,
 }
 
@@ -42,19 +42,10 @@ state={
 }
 
 
+userlogin = async () => {
+var {Useremail} = this.state;
+var {Userpassword} = this.state;
 
-
-
-
-
-
-
-
-
-userLogin = () => {
-
-const {Useremail} = this.state;
-const {Userpassword} = this.state;
 
   fetch("http://jgyawali.000webhostapp.com/awesomeapp/userlogin.php",{
   method: 'POST',
@@ -66,10 +57,11 @@ const {Userpassword} = this.state;
     email:Useremail,
     password:Userpassword
   })
-
 }).then((response) => response.json())
   .then ((responseJson) => {
     alert(responseJson);
+    this.setState({ Useremail: "" });
+    this.setState({ Userpassword: "" });
   }).catch ((error) => {
     console.error(error);
   });
@@ -79,13 +71,8 @@ const {Userpassword} = this.state;
   render() {
     let {image} = this.state;
     return (
-      <View style={{    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-    padding: 8,}}>
-        <Input
-        placeholder='Enter your email...' 
-        label='Email'
+      <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#ecf0f1', padding: 20,paddingTop:200,}}>
+        <Input placeholder='Enter your email...' label='Email'
         onChangeText={Useremail=> this.setState({Useremail})}
         value = {this.state.Useremail}
         />
@@ -97,6 +84,7 @@ const {Userpassword} = this.state;
          onChangeText={Userpassword=> this.setState({Userpassword})}
         value = {this.state.Userpassword}
         />
+
      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button
           title="Pick an image from camera roll"
@@ -105,19 +93,22 @@ const {Userpassword} = this.state;
         {image &&
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
       </View>
-        <Button
-          title="Log in"
-          onPress={this.userLogin}
-        />
 
-            <Button
-          title="Upload"
-          onPress={this.takePhotoAndUpload}
-        />
+    <View style={styles.container}>
+    <TouchableOpacity onPress={this.userlogin} style={styles.button}>
+    <Text style={styles.text}>Sign Up </Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity onPress={this.takePhotoAndUpload} style={styles.button}>
+    <Text style={styles.text}>Upload</Text>
+    </TouchableOpacity>
+
+        </View>
 
       </View>
     );
   }
+  
 
   componentDidMount() {
     this.getPermissionAsync();
@@ -139,7 +130,11 @@ const {Userpassword} = this.state;
       aspect: [4, 3],
     });
 
-      let localUri = result.uri;
+    if (result.cancelled) {
+    return;
+  }
+
+  let localUri = result.uri;
   let filename = localUri.split('/').pop();
 
   let match = /\.(\w+)$/.exec(filename);
@@ -165,3 +160,23 @@ const {Userpassword} = this.state;
     }
   };
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  button: {
+    backgroundColor: '#00aeef',
+    alignItems:'center',
+    width: '40%',
+    height: 40
+  },
+    text:{
+    padding:10,
+    color:'white',
+    fontWeight: '700',
+    fontSize: 18,
+  }
+});
