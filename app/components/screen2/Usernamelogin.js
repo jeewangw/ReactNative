@@ -7,6 +7,9 @@ import {
 	Text,
 	KeyboardAvoidingView,
 	ScrollView,
+	ActivityIndicator,
+	AsyncStorage,
+	Alert,
 } from 'react-native';
 
 import { Header } from 'react-navigation';
@@ -24,13 +27,30 @@ export default class Usernamelogin extends React.Component {
             Userpassword: "",
         }
 
+
     }
 
 
 	userlogin = async () => {
+
 		var {Username} = this.state;
 		var {Useremail} = this.state;
 		var {Userpassword} = this.state;
+		var loginSuccess = 'n';
+
+		Alert.alert(
+			  'Loading..',
+			  'We are checking in our database',
+			  [
+			    {
+			      text: 'Cancel',
+			      onPress: () => console.log('Please hold few more seconds'),
+			      style: 'cancel',
+			    },
+			    {text: 'OK', onPress: () => Alert.alert('It might take few seconds only..')},
+			  ],
+			  {cancelable: false},
+			);
 
 		  fetch("http://jgyawali.000webhostapp.com/awesomeapp/userLogin1.php",{
 		  method: 'POST',
@@ -45,7 +65,11 @@ export default class Usernamelogin extends React.Component {
 		  })
 		}).then((response) => response.json())
 		  .then ((responseJson) => {
-		    alert(responseJson);
+		    Alert.alert(responseJson);
+		    if ((responseJson) == ("Login Successful!!!")){
+		    	 AsyncStorage.setItem('isLoggedIn','1');
+		    	 this.props.navigation.navigate('App');
+		    }
 		    this.setState({ Username: "" });
 		    this.setState({ Useremail: "" });
 		    this.setState({ Userpassword: "" });
@@ -61,11 +85,11 @@ export default class Usernamelogin extends React.Component {
             return false;
         }
         
+       
 
-        return (
+        	return (
         		
         	<View>
-
 	 			<View style={styles.component} >
 					<TextInput 
 						style={styles.item1TextInput}
@@ -105,7 +129,9 @@ export default class Usernamelogin extends React.Component {
 
 										<View >
 
-		                                <TouchableOpacity onPress={this.userlogin} 
+		                                <TouchableOpacity onPress={
+		                                	this.userlogin
+		                                } 
 												style={styles.item1}
 											>
 												
@@ -120,7 +146,7 @@ export default class Usernamelogin extends React.Component {
 
           				  </View>
         );
-
+        
     }
 
 }
@@ -160,6 +186,15 @@ const styles = StyleSheet.create({
 	item1TextInput: {
 		fontSize: 14,
 		color: 'black',
-	}
+	},
+	 loading: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
 	
 });
