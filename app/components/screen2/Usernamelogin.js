@@ -68,6 +68,9 @@ export default class Usernamelogin extends React.Component {
 		    Alert.alert(responseJson);
 		    if ((responseJson) == ("Login Successful!!!")){
 		    	 AsyncStorage.setItem('isLoggedIn','1');
+		    	 AsyncStorage.setItem('username',Username);
+		    	 AsyncStorage.setItem('password',Userpassword);
+		    	 AsyncStorage.setItem('useremail',Useremail);
 		    	 this.props.navigation.navigate('App');
 		    }
 		    this.setState({ Username: "" });

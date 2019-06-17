@@ -2,87 +2,37 @@ import React from 'react';
 import { 
     StyleSheet,
     View,Text,Button,
-    AsyncStorage,
+    AsyncStorage, TextInput,
 } from 'react-native';
 
 
 
 export default class Screen3 extends React.Component {
 
-    constructor(props) {
-
-        super(props);
-
-        this.state = {
-
-        }
-
-    }
-
-    toggleComponent(component = false) {
-
-        if (!component) {
-            return false;
-        }
-
-        let prop = component + 'Visible';
-        let val  = this.state[prop];
-        if (typeof val === 'undefined') {
-            return false;
-        }
-
-        this.setState({
-            [prop]: val === true ? false : true
-        })
-
-        return true;
-
-    }
-
-    hideComponent(component = false) {
-
-        if (!component) {
-            return false;
-        }
-
-        let prop = component + 'Visible';
-
-        this.setState({
-            [prop]: false
-        })
-
-        return true;
-
-    }
-
-    showComponent(component = false) {
-
-        if (!component) {
-            return false;
-        }
-
-        let prop = component + 'Visible';
-
-        this.setState({
-            [prop]: true
-        })
-
-        return true;
-
-    }
+     state = {
+      'name': ''
+   }
+   componentDidMount = () => AsyncStorage.getItem('username').then((value) => this.setState({ 'name': value }))
+   
+   // Needed when user wants to update his name locally
+ /*  setName = (value) => {
+      AsyncStorage.setItem('name', value);
+      this.setState({ 'name': value });
+   } */
 
     render() {
+
         return (
 
             
-            <View style={styles.container}>
+            <View >
 
-                <View style={styles.screencontainer}>
+                <View >
 
-                    <View style={styles.screencontainerInner}>
-
-                        <Text> Logout </Text>
-                        <Text> My name is {this.props.username} </Text>
+                    <View style={styles.item1}>
+                        <Text>
+                           {this.state.name}, we will miss you. Come back soon !!!
+                        </Text>
                         <Button onPress={this._logout} title="Logout" />
 
                     </View>
@@ -115,5 +65,15 @@ const styles = StyleSheet.create({
 	screencontainerInner: {
 	    flex: 1,
 	},
+        item1: {
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        padding: 10,
+        backgroundColor: 'rgba(96,125,139,1)',
+        borderRadius: 24,
+    },
 	
 });
