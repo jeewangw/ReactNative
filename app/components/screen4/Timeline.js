@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-import { AppRegistry, StyleSheet, ActivityIndicator, ListView, Text, View, Alert,Image, Platform} from 'react-native';
+import { AppRegistry, StyleSheet, ActivityIndicator, ListView,
+ 		Text, View, Alert,Image,
+  	     Platform,} from 'react-native';
+
 
 export default class Timeline extends React.Component {
  
@@ -69,12 +72,12 @@ GetItem (status) {
          renderSeparator= {this.ListViewItemSeparator}
          renderRow={(rowData) =>
 
-        <View style={{flex:1, flexDirection: 'row'}}>
         <View style={{flex:1, flexDirection: 'column'}}>
-         <Text style={styles.textViewContainer}> {rowData.name} shared</Text>
+        <View style={{flex:1, flexDirection: 'column'}}>
+         <Text style={styles.usertext}> {rowData.name} shared a post</Text>
          <Text onPress={this.GetItem.bind(this, rowData.status)} style={styles.textViewContainer} >{rowData.status}</Text>
          </View>
-          <Image source = {{ uri: rowData.folder}} style={styles.imageViewContainer} />
+          <Image source = {{ uri: rowData.folder}} style={styles.imageViewContainer}  />
 
         </View>
          }
@@ -98,10 +101,11 @@ paddingTop: (Platform.OS === 'ios') ? 20 : 0,
 },
 
 imageViewContainer: {
-width: '50%',
-height: 100 ,
-margin: 10,
-borderRadius : 10
+width: '75%',
+height: 200 ,
+marginLeft: 70,
+borderRadius : 10,
+marginBottom :20,
 
 },
 
@@ -111,12 +115,27 @@ textViewContainer: {
   width:'50%', 
   padding:20,
   color: 'rgba(255,255,255,1)',
-  fontSize: 10,
+  fontSize: 13,
   fontWeight: '600',
   width: '100%',
   flexWrap: 'wrap',
   flex:1,
 
-}
+},
+usertext: {
+
+  textAlignVertical:'center',
+  width:'50%', 
+  padding:20,
+  color: 'rgba(255,255,255,1)',
+  fontSize: 15,
+  fontWeight: '600',
+  width: '100%',
+  flexWrap: 'wrap',
+  flex:1,
+  paddingBottom:0,
+  marginBottom:0,
+
+},
 
 });

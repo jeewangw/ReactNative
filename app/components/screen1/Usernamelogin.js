@@ -43,9 +43,9 @@ export default class Usernamelogin extends React.Component {
 		    email:Useremail,
 		    password:Userpassword
 		  })
-		}).then((response) => response.json())
-		  .then ((responseJson) => {
-		    alert(responseJson);
+		}).then((response) => response.text())
+		  .then ((responseText) => {
+		    alert(responseText);
 		    this.setState({ Username: "" });
 		    this.setState({ Useremail: "" });
 		    this.setState({ Userpassword: "" });
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
 	},
 	item1TextInput: {
 		fontSize: 20,
-		color: 'black',
+		color: '#FFF',
 	}
 	
 });
