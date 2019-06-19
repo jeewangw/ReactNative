@@ -89,6 +89,9 @@ const styles = StyleSheet.create({
 	layouts: {
 	    flexDirection: 'row',
 	    flexWrap: 'wrap',
+	    backgroundColor: '#94a3ba',
+	    marginTop:20,
+	    borderRadius:20,
 	},
 	
 	layout1: {
@@ -150,7 +153,6 @@ const styles = StyleSheet.create({
 	    justifyContent: 'center',
 	    overflow: 'hidden',
 	    padding: 10,
-	    backgroundColor: 'rgba(134,60,60,1)',
 	    borderRadius: 0,
 	    borderStyle: 'solid',
 	    borderWidth: 0,
