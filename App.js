@@ -11,6 +11,8 @@ import {
   createStackNavigator,  createAppContainer,  createBottomTabNavigator, createSwitchNavigator,
 } from 'react-navigation'; 
 
+import { FontAwesome } from '@expo/vector-icons';
+
 import Screen1 from './app/components/screen1/Screen1';
 import Screen2 from './app/components/screen2/Screen2';
 import Screen3 from './app/components/screen3/Screen3';
@@ -43,6 +45,34 @@ const RootStack = createStackNavigator ({
             }
         });
 
+const LogoutStack = createStackNavigator ({
+          Screen3: { 
+                screen: Screen3,
+                navigationOptions: {
+                    title: false,
+                    header: null,
+                }
+            }
+        });
+
+RootStack.navigationOptions = {
+  tabBarLabel: "Home",
+  tabBarIcon: <FontAwesome 
+                name={"home"}
+                size={30}
+                color='black'
+            />,
+};
+
+LogoutStack.navigationOptions = {
+  tabBarLabel: "Logout",
+  tabBarIcon: <FontAwesome 
+                name={"unlock-alt"}
+                size={30}
+                color='black'
+            />,
+};
+
 const AuthStack = createStackNavigator ({Registration: Screen1});
 class AuthLoadingScreen extends Component {
     constructor (props){
@@ -70,17 +100,16 @@ _loadData = async() => {
 
 
 const TabNavigator = createBottomTabNavigator({
-  Registration: Screen1,
-  Login: Screen2,
+  Home: RootStack,
+  Logout: LogoutStack,
 });
 
 const App = createAppContainer(StackNavigator);
-//const TabApp= createAppContainer(TabNavigator);
-//export default App;
+const TabApp= createAppContainer(TabNavigator);
 const swtichingApp = createAppContainer(createSwitchNavigator(
                       {
                         AuthLoading: AuthLoadingScreen,
-                        App: RootStack,
+                        App: TabApp,
                         Auth: App,
                       },
                       {
