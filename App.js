@@ -14,6 +14,7 @@ import {
 import Screen1 from './app/components/screen1/Screen1';
 import Screen2 from './app/components/screen2/Screen2';
 import Screen3 from './app/components/screen3/Screen3';
+import Screen4 from './app/components/screen4/Screen4';
 
 const StackNavigator = createStackNavigator({
     Screen1: { 
@@ -32,7 +33,15 @@ const StackNavigator = createStackNavigator({
     },
 },{ headerMode: 'screen' }); 
 
-const RootStack = createStackNavigator ({Logout: Screen3});
+const RootStack = createStackNavigator ({
+          Screen4: { 
+                screen: Screen4,
+                navigationOptions: {
+                    title: false,
+                    header: null,
+                }
+            }
+        });
 
 const AuthStack = createStackNavigator ({Registration: Screen1});
 class AuthLoadingScreen extends Component {
