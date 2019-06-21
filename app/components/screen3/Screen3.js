@@ -30,7 +30,7 @@ export default class Screen3 extends React.Component {
                 <View >
 
                     <View style={styles.item1}>
-                        <Text>
+                        <Text style={{color:'#FFF', fontWeight:'bold'}}>
                            {this.state.name}, we will miss you. Come back soon !!!
                         </Text>
                         <Button onPress={this._logout} title="Logout" />

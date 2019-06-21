@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, ActivityIndicator, ListView,
  		Text, View, Alert,Image,
   	     Platform,} from 'react-native';
+import { Container, Header, Content, Card, CardItem, Thumbnail,
+ Button, Icon, Left, Body, Right } from 'native-base';
 
 
 export default class Timeline extends React.Component {
@@ -10,7 +12,14 @@ export default class Timeline extends React.Component {
  constructor(props) {
    super(props);
    this.state = {
-     isLoading: true
+     isLoading: true,
+     like:'',
+     serverLike:'',
+      'Username': '',
+      'Useremail': '',
+      'Userpassword': '',
+      'Userstatus' :'',
+      'Userid':'',
    }
  }
  
@@ -22,8 +31,12 @@ GetItem (status) {
 
 
  componentDidMount() {
+    this._fetcher();
+ }
 
-   return fetch('http://jgyawali.000webhostapp.com/awesomeapp/Timeline.php')
+  _fetcher= () => {
+
+      return fetch('http://jgyawali.000webhostapp.com/awesomeapp/Timeline.php')
      .then((response) => response.json())
      .then((responseJson) => {
        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -37,7 +50,36 @@ GetItem (status) {
      .catch((error) => {
        console.error(error);
      });
- }
+
+  }
+
+  _changed = async() => {
+
+    const {Username} = this.state;
+    const  {Useremail} = this.state;
+    const  {Userpassword} = this.state;
+    const {Userstatus} = this.state;
+    const {serverLike} = this.state;
+    const {Userid} = this.state;
+
+
+    const formData = new FormData();
+      formData.append('name', Username);
+        formData.append('email', Useremail);
+        formData.append('password', Userpassword);
+        formData.append('status',Userstatus);
+        formData.append('like',serverLike);
+        formData.append('id',Userid);
+  
+
+    var request = new XMLHttpRequest();
+    request.open("POST", "http://jgyawali.000webhostapp.com/awesomeapp/Like.php",true);
+    request.send(formData);
+
+
+  }
+
+
 
  ListViewItemSeparator = () => {
    return (
@@ -56,7 +98,7 @@ GetItem (status) {
    if (this.state.isLoading) {
      return (
        <View style={{flex: 1, paddingTop: 20}}>
-         <ActivityIndicator />
+         <ActivityIndicator size='large' />
        </View>
      );
    }
@@ -77,7 +119,47 @@ GetItem (status) {
          <Text style={styles.usertext}> {rowData.name} shared a post</Text>
          <Text onPress={this.GetItem.bind(this, rowData.status)} style={styles.textViewContainer} >{rowData.status}</Text>
          </View>
+
           <Image source = {{ uri: rowData.folder}} style={styles.imageViewContainer}  />
+
+             <CardItem style={styles.card}>
+              <Left>
+                <Button transparent onPress ={ () => {
+                if (rowData.liked == 0){
+                  rowData.likes ++;
+                  rowData.liked++;     
+                  this.setState({like:""})
+                  this.setState({serverLike:rowData.likes})
+                  this.setState({Username:rowData.name})
+                  this.setState({Useremail:rowData.email})
+                  this.setState({Userpassword:rowData.password})
+                  this.setState({Userstatus:rowData.status})
+                  this.setState({Userid:rowData.id})
+
+                  this._changed();
+
+                } else{
+                  rowData.likes --;
+                  rowData.liked--;
+                  this.setState({like:""})
+                    this.setState({serverLike:rowData.likes})
+                  this.setState({Username:rowData.name})
+                  this.setState({Useremail:rowData.email})
+                  this.setState({Userpassword:rowData.password})
+                  this.setState({Userstatus:rowData.status})
+                  this.setState({Userid:rowData.id})
+                  this._changed();
+                }
+                }}>
+                  <Icon active name="thumbs-up" />
+                  <Text>{this.state.like}{rowData.likes} Likes </Text>
+                </Button>
+              </Left>
+              <Right style={{flexDirection:'row'}}>
+                <Icon active name="clock" style={{color:'blue'}} />
+                <Text>{rowData.date}</Text>
+              </Right>
+            </CardItem>
 
         </View>
          }
@@ -105,7 +187,7 @@ width: '75%',
 height: 200 ,
 marginLeft: 70,
 borderRadius : 10,
-marginBottom :20,
+marginBottom :5,
 
 },
 
@@ -136,6 +218,11 @@ usertext: {
   paddingBottom:0,
   marginBottom:0,
 
+},
+card: {
+  width:'75%', 
+  height:50,
+  marginLeft:70,
 },
 
 });

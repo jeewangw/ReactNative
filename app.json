@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "My First Project",
+    "name": "Tour in Nepal",
     "slug": "AwesomeProject",
     "privacy": "public",
     "sdkVersion": "33.0.0",
@@ -25,6 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "copyright Jeevan Gyawali"
   }
 }

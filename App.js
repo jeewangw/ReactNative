@@ -18,6 +18,7 @@ import Screen2 from './app/components/screen2/Screen2';
 import Screen3 from './app/components/screen3/Screen3';
 import Screen4 from './app/components/screen4/Screen4';
 import Screen5 from './app/components/screen5/Screen5';
+import Screen6 from './app/components/screen6/Screen6';
 
 const StackNavigator = createStackNavigator({
     Screen1: { 
@@ -29,6 +30,13 @@ const StackNavigator = createStackNavigator({
     },
     Screen2: { 
         screen: Screen2,
+        navigationOptions: {
+            title: false,
+            header: null,
+        }
+    },
+       Screen6: { 
+        screen: Screen6,
         navigationOptions: {
             title: false,
             header: null,

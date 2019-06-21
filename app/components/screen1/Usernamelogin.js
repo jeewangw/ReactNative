@@ -7,9 +7,24 @@ import {
 	Text,
 	KeyboardAvoidingView,
 	ScrollView,
+	ActivityIndicator,
+	Alert, AsyncStorage,
 } from 'react-native';
 
 import { Header } from 'react-navigation';
+
+import * as firebase from 'firebase';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDcd0XU3xR-4ZYbpuHLCrEux7MTQ-OhSv8",
+    authDomain: "dinder-7d5cb.firebaseapp.com",
+    databaseURL: "https://dinder-7d5cb.firebaseio.com",
+    projectId: "dinder-7d5cb",
+    storageBucket: "dinder-7d5cb.appspot.com",
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
 
 export default class Usernamelogin extends React.Component {
@@ -22,12 +37,39 @@ export default class Usernamelogin extends React.Component {
             Username: "",
             Useremail: "",
             Userpassword: "",
+            isLoading: false,
         }
 
     }
 
+    userlogin = () => {
+    	var {Username} = this.state;
+		var {Useremail} = this.state;
+		var {Userpassword} = this.state;
+		try{
+			if(Userpassword.length < 6)
+			{
+				Alert.alert("Please enter atleast 6 characters");
+				return;
+			}
 
-	userlogin = async () => {
+			firebase.auth().createUserWithEmailAndPassword(Useremail,Userpassword)
+			AsyncStorage.setItem('username',Username);
+			this.setState({ Username: "" });
+		    this.setState({ Useremail: "" });
+		    this.setState({ Userpassword: "" });
+		    this.props.navigation.navigate('Screen2')
+
+		}
+		catch(error){
+			Alert.alert(error.toString())
+		}
+    }
+
+	/*userlogin = async () => {
+		this.setState({
+         	isLoading: true,
+         });
 		var {Username} = this.state;
 		var {Useremail} = this.state;
 		var {Userpassword} = this.state;
@@ -45,14 +87,17 @@ export default class Usernamelogin extends React.Component {
 		  })
 		}).then((response) => response.text())
 		  .then ((responseText) => {
-		    alert(responseText);
+		    this.setState({
+         	isLoading: false,
+         });
+		   // this.props.navigation.navigate('Screen6'); takes to confirmation page
 		    this.setState({ Username: "" });
 		    this.setState({ Useremail: "" });
 		    this.setState({ Userpassword: "" });
 		  }).catch ((error) => {
 		    console.error(error);
 		  });
-		}
+		} */
 
 
     render() {
@@ -60,6 +105,13 @@ export default class Usernamelogin extends React.Component {
         if (!this.props.visible) {
             return false;
         }
+	        if (this.state.isLoading) {
+			     return (
+			       <View style={styles.loading}>
+			         <ActivityIndicator  size='large' />
+			       </View>
+			     );
+			   }
         
 
         return (
@@ -165,6 +217,10 @@ const styles = StyleSheet.create({
 	item1TextInput: {
 		fontSize: 20,
 		color: '#FFF',
-	}
+	},
+	loading: {
+		flex:1,
+		padding:20,
+  }
 	
 });

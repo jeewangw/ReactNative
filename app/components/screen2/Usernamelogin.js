@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import { Header } from 'react-navigation';
+import * as firebase from 'firebase';
 
 
 export default class Usernamelogin extends React.Component {
@@ -25,13 +26,52 @@ export default class Usernamelogin extends React.Component {
             Username: "",
             Useremail: "",
             Userpassword: "",
+            isLoading: false,
+            isDone: false,
         }
 
 
     }
 
+       componentDidMount = () => AsyncStorage.getItem('username').then((value) => this.setState({ 'Username': value }))
 
-	userlogin = async () => {
+       userlogin = () => {
+    	var {Username} = this.state;
+		var {Useremail} = this.state;
+		var {Userpassword} = this.state;
+		try{
+
+			if(Username.length == 0)
+			{
+				Alert.alert("Please enter username");
+				return;
+			}
+
+			firebase.auth().signInWithEmailAndPassword(Useremail,Userpassword)
+				.then((user) => {
+				 AsyncStorage.setItem('isLoggedIn','1');
+		    	 AsyncStorage.setItem('username',Username);
+		    	 AsyncStorage.setItem('password',Userpassword);
+		    	 AsyncStorage.setItem('useremail',Useremail);
+			    this.props.navigation.navigate('App')
+
+			})
+
+		}
+		catch(error){
+			this.setState({ Username: "" });
+		    this.setState({ Useremail: "" });
+		    this.setState({ Userpassword: "" });
+			Alert.alert(error.toString())
+		}
+    }
+
+
+/*	userlogin = async () => {
+		this.setState({
+         	isLoading: true,
+         });
+		var{isDone} = this.state;
 
 		var {Username} = this.state;
 		var {Useremail} = this.state;
@@ -51,8 +91,8 @@ export default class Usernamelogin extends React.Component {
 			  ],
 			  {cancelable: false},
 			);
-
-		  fetch("http://jgyawali.000webhostapp.com/awesomeapp/userLogin1.php",{
+		if (isDone == false){
+				  fetch("http://jgyawali.000webhostapp.com/awesomeapp/userLogin1.php",{
 		  method: 'POST',
 		  headers: {
 		    'Accept':'application/json',
@@ -71,6 +111,12 @@ export default class Usernamelogin extends React.Component {
 		    	 AsyncStorage.setItem('username',Username);
 		    	 AsyncStorage.setItem('password',Userpassword);
 		    	 AsyncStorage.setItem('useremail',Useremail);
+		    	 this.setState({
+         		 isLoading: true,
+        		 });
+        		 this.setState({
+		         	isDone: true,
+		         });
 		    	 this.props.navigation.navigate('App');
 		    }
 		    this.setState({ Username: "" });
@@ -79,7 +125,10 @@ export default class Usernamelogin extends React.Component {
 		  }).catch ((error) => {
 		    console.error(error);
 		  });
+
 		}
+	
+		} */
 
 
     render() {
@@ -87,6 +136,14 @@ export default class Usernamelogin extends React.Component {
         if (!this.props.visible) {
             return false;
         }
+
+         if (this.state.isLoading) {
+			     return (
+			       <View style={styles.loading}>
+			         <ActivityIndicator  size='large' />
+			       </View>
+			     );
+			   }
         
        
 
