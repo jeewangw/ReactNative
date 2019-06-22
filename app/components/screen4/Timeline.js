@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { AppRegistry, StyleSheet, ActivityIndicator, ListView,
+import { AppRegistry, StyleSheet, ActivityIndicator,FlatList,
  		Text, View, Alert,Image,
   	     Platform,} from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail,
@@ -20,6 +20,7 @@ export default class Timeline extends React.Component {
       'Userpassword': '',
       'Userstatus' :'',
       'Userid':'',
+      refresh: false,
    }
  }
  
@@ -39,10 +40,11 @@ GetItem (status) {
       return fetch('http://jgyawali.000webhostapp.com/awesomeapp/Timeline.php')
      .then((response) => response.json())
      .then((responseJson) => {
-       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+      // let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
        this.setState({
          isLoading: false,
-         dataSource: ds.cloneWithRows(responseJson),
+         //dataSource: ds.cloneWithRows(responseJson),
+         dataSource: responseJson,
        }, function() {
          // In this block you can do something with new state.
        });
@@ -107,62 +109,73 @@ GetItem (status) {
 
      <View style={styles.MainContainer}>
 
-       <ListView
-
-         dataSource={this.state.dataSource}
+       <FlatList
+        extraData={this.state.refresh}
+         data={this.state.dataSource}
 
          renderSeparator= {this.ListViewItemSeparator}
-         renderRow={(rowData) =>
-
-        <View style={{flex:1, flexDirection: 'column'}}>
-        <View style={{flex:1, flexDirection: 'column'}}>
-         <Text style={styles.usertext}> {rowData.name} shared a post</Text>
-         <Text onPress={this.GetItem.bind(this, rowData.status)} style={styles.textViewContainer} >{rowData.status}</Text>
-         </View>
-
-          <Image source = {{ uri: rowData.folder}} style={styles.imageViewContainer}  />
-
-             <CardItem style={styles.card}>
-              <Left>
+         renderItem={({item}) =>
+                <Content>
+                  <Card style={{flex: 0}}>
+                    <CardItem>
+                      <Left>
+                        <Thumbnail source={{ uri: 'https://cdn4.iconfinder.com/data/icons/people-std-pack/512/hiker-512.png'}} />
+                        <Body>
+                          <Text>{item.name}</Text>
+                          <Text note>{item.date}</Text>
+                        </Body>
+                      </Left>
+                    </CardItem>
+                    <CardItem>
+                      <Body>
+                        <Image source={{ uri: item.folder}} style={{height: 200, width: 200, flex: 1, margin:70}}/>
+                        <Text>
+                          {item.status}
+                        </Text>
+                      </Body>
+                    </CardItem>
+                    <CardItem>
+                     <Left>
                 <Button transparent onPress ={ () => {
-                if (rowData.liked == 0){
-                  rowData.likes ++;
-                  rowData.liked++;     
-                  this.setState({like:""})
-                  this.setState({serverLike:rowData.likes})
-                  this.setState({Username:rowData.name})
-                  this.setState({Useremail:rowData.email})
-                  this.setState({Userpassword:rowData.password})
-                  this.setState({Userstatus:rowData.status})
-                  this.setState({Userid:rowData.id})
-
+                if (item.liked == 0){
+                  item.likes ++;
+                  item.liked++;     
+                  this.setState({serverLike:item.likes});
+                  this.setState({Username:item.name});
+                  this.setState({Useremail:item.email});
+                  this.setState({Userpassword:item.password});
+                  this.setState({Userstatus:item.status});
+                  this.setState({Userid:item.id});
+                  this.setState({ 
+                                    refresh: !this.state.refresh
+                                })
                   this._changed();
 
                 } else{
-                  rowData.likes --;
-                  rowData.liked--;
-                  this.setState({like:""})
-                    this.setState({serverLike:rowData.likes})
-                  this.setState({Username:rowData.name})
-                  this.setState({Useremail:rowData.email})
-                  this.setState({Userpassword:rowData.password})
-                  this.setState({Userstatus:rowData.status})
-                  this.setState({Userid:rowData.id})
+                  item.likes --;
+                  item.liked--;
+                  this.setState({serverLike:item.likes});
+                  this.setState({Username:item.name});
+                  this.setState({Useremail:item.email});
+                  this.setState({Userpassword:item.password});
+                  this.setState({Userstatus:item.status});
+                  this.setState({Userid:item.id});
+                  this.setState({ 
+                                    refresh: !this.state.refresh
+                                })
                   this._changed();
                 }
                 }}>
                   <Icon active name="thumbs-up" />
-                  <Text>{this.state.like}{rowData.likes} Likes </Text>
+                  <Text>{this.state.like}{item.likes} Likes </Text>
                 </Button>
               </Left>
-              <Right style={{flexDirection:'row'}}>
-                <Icon active name="clock" style={{color:'blue'}} />
-                <Text>{rowData.date}</Text>
-              </Right>
-            </CardItem>
-
-        </View>
+                    </CardItem>
+                  </Card>
+                </Content>
          }
+
+         keyExtractor={({id}, index) => id}
        />
 
      </View>

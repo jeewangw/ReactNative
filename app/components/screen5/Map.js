@@ -8,7 +8,7 @@ import CurrentLocationButton from './location/CurrentLocationButton';
 
 
 export default class Map extends React.Component {
-	  constructor(props) {
+    constructor(props) {
     super(props);
 
     this.state = {
@@ -24,6 +24,30 @@ export default class Map extends React.Component {
       longitudeDelta:0.01,
       watchID : null,
       geoLoc : null,
+      markers: [{
+        title: 'Engineering Research Building',
+        id : 0,
+        coordinates: {
+          latitude: 32.7333207,
+          longitude: -97.1155631
+        },
+      },
+      {
+        title: 'Himalayan Aroma Restaurant',
+        id : 1,
+        coordinates: {
+          latitude: 32.8566795,
+          longitude: -96.995222
+        },
+      },
+      {
+        title: 'Aayush Works Here',
+        id : 2,
+        coordinates: {
+          latitude: 32.6650824,
+          longitude: -97.3345807
+        },
+      }]
     };
 
     this.mergeLot = this.mergeLot.bind(this);
@@ -114,6 +138,12 @@ export default class Map extends React.Component {
        })
      }
 
+     forDirections(id){
+       console.log(id);
+       console.log(this.state.markers[id].coordinates.latitude);
+       let forDest = this.state.markers[id].coordinates.latitude + "," + this.state.markers[id].coordinates.longitude;
+       this.getDirections(this.state.concat, forDest);
+     }
 
 
     render() {
@@ -121,71 +151,81 @@ export default class Map extends React.Component {
         if (!this.props.visible) {
             return false;
         }
-        
+
 
         return (
 
-            <View 
+            <View
                 style={styles.componenta}
             >
 
                 <View style={styles.layoutsa}>
 
-                	<View style={styles.layout1a}>
+                  <View style={styles.layout1a}>
 
-                		<View style={styles.itemcontainer1a}>
+                    <View style={styles.itemcontainer1a}>
 
-                			<View style={styles.itemcontainer1Innera}>
-                			
-                					<CurrentLocationButton cb = {() => {this.centerMap()}}/>
+                      <View style={styles.itemcontainer1Innera}>
 
-                					
-
-                                   <MapView style={styles.item1} initialRegion={{
-									        latitude:32.7333207,
-									        longitude:-97.1155631,
-									        latitudeDelta: 0.01,
-									        longitudeDelta: 0.01
-									      }}
-									      ref = {(map) => {this.map = map}}>
-
-									      {!!this.state.latitude && !!this.state.longitude && <MapView.Marker
-									         coordinate={{"latitude":this.state.latitude,"longitude":this.state.longitude}}
-									         title={"Your Location"}
-									       />}
-
-									       {!!this.state.cordLatitude && !!this.state.cordLongitude && <MapView.Marker
-									          coordinate={{"latitude":this.state.cordLatitude,"longitude":this.state.cordLongitude}}
-									          title={"Your Destination"}
-									        />}
-
-									       {!!this.state.latitude && !!this.state.longitude && this.state.x == 'true' && <MapView.Polyline
-									            coordinates={this.state.coords}
-									            strokeWidth={2}
-									            strokeColor="red"/>
-									        }
+                          <CurrentLocationButton cb = {() => {this.centerMap()}}/>
 
 
-									        {!!this.state.latitude && !!this.state.longitude && this.state.x == 'error' && <MapView.Polyline
-									          coordinates={[
-									              {latitude: this.state.latitude, longitude: this.state.longitude},
-									              {latitude: this.state.cordLatitude, longitude: this.state.cordLongitude},
-									          ]}
-									          strokeWidth={2}
-									          strokeColor="red"/>
-									         }
-							      </MapView>
 
-                			</View>
+                         <MapView style={styles.item1} initialRegion={{
+                          latitude:32.7333207,
+                          longitude:-97.1155631,
+                          latitudeDelta: 0.1,
+                          longitudeDelta: 0.1
+                        }}
+                        zoomEnabled = {true}
+                        ref = {(map) => {this.map = map}}>
 
-                		</View>
+                        {this.state.markers.map((marker,index) => (
+                          <MapView.Marker
+                              key = {index}
+                              coordinate = {marker.coordinates}
+                              title = {marker.title}
+                              onPress = {( ) => {this.forDirections(marker.id)}}
+                          />
+                        ))}
 
-                	</View>
-                	
+                        {!!this.state.latitude && !!this.state.longitude && <MapView.Marker
+                           coordinate={{"latitude":this.state.latitude,"longitude":this.state.longitude}}
+                           title={"Your Location"}
+                         />}
+
+                         {!!this.state.cordLatitude && !!this.state.cordLongitude && <MapView.Marker
+                            coordinate={{"latitude":this.state.cordLatitude,"longitude":this.state.cordLongitude}}
+                            title={"Your Destination"}
+                          />}
+
+                         {!!this.state.latitude && !!this.state.longitude && this.state.x == 'true' && <MapView.Polyline
+                              coordinates={this.state.coords}
+                              strokeWidth={2}
+                              strokeColor="red"/>
+                          }
+
+
+                          {!!this.state.latitude && !!this.state.longitude && this.state.x == 'error' && <MapView.Polyline
+                            coordinates={[
+                                {latitude: this.state.latitude, longitude: this.state.longitude},
+                                {latitude: this.state.cordLatitude, longitude: this.state.cordLongitude},
+                            ]}
+                            strokeWidth={2}
+                            strokeColor="red"/>
+                           }
+                    </MapView>
+
+                      </View>
+
+                    </View>
+
+                  </View>
+
                 </View>
 
             </View>
-            
+
         );
 
     }
@@ -193,49 +233,49 @@ export default class Map extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    
-	component: {
-	    width: '100%',
-	    flexDirection: 'row',
-	    paddingLeft: 7.5,
-	    paddingRight: 7.5,
-	    paddingTop: 7.5,
-	    paddingBottom: 7.5,
-	},
-	
-	layouts: {
-	    flexDirection: 'row',
-	    flexWrap: 'wrap',
-	},
-	
-	layout1: {
-	    width: '100%',
-	    height: 450,
-	},
-	
-	itemcontainer1: {
-	    width: '100%',
-	    height: '100%',
-	    paddingTop: 7.5,
-	    paddingBottom: 7.5,
-	    paddingLeft: 7.5,
-	    paddingRight: 7.5,
-	},
-	
-	itemcontainer1Inner: {
-	    width: '100%',
-	    height: '100%',
-	    position: 'relative',
-	    alignItems: 'center',
-	    justifyContent: 'center',
-	},
-	
-	item1: {
-	    width: '100%',
-	    height: '100%',
-	    alignItems: 'center',
-	    justifyContent: 'center',
-	    overflow: 'hidden',
-	},
-	
+
+  component: {
+      width: '100%',
+      flexDirection: 'row',
+      paddingLeft: 7.5,
+      paddingRight: 7.5,
+      paddingTop: 7.5,
+      paddingBottom: 7.5,
+  },
+
+  layouts: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+  },
+
+  layout1: {
+      width: '100%',
+      height: 450,
+  },
+
+  itemcontainer1: {
+      width: '100%',
+      height: '100%',
+      paddingTop: 7.5,
+      paddingBottom: 7.5,
+      paddingLeft: 7.5,
+      paddingRight: 7.5,
+  },
+
+  itemcontainer1Inner: {
+      width: '100%',
+      height: '100%',
+      position: 'relative',
+      alignItems: 'center',
+      justifyContent: 'center',
+  },
+
+  item1: {
+      width: '100%',
+      height: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+  },
+
 });

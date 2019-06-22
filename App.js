@@ -19,6 +19,7 @@ import Screen3 from './app/components/screen3/Screen3';
 import Screen4 from './app/components/screen4/Screen4';
 import Screen5 from './app/components/screen5/Screen5';
 import Screen6 from './app/components/screen6/Screen6';
+import Screen8 from './app/components/screen8/Screen8';
 
 const StackNavigator = createStackNavigator({
     Screen1: { 
@@ -74,6 +75,16 @@ const MapStack = createStackNavigator ({
             }
         });
 
+const MoneyStack = createStackNavigator ({
+          Screen8: { 
+                screen: Screen8,
+                navigationOptions: {
+                    title: false,
+                    header: null,
+                }
+            }
+        });
+
 RootStack.navigationOptions = {
   tabBarLabel: "Home",
   tabBarIcon: <FontAwesome 
@@ -95,6 +106,14 @@ MapStack.navigationOptions = {
   tabBarLabel: "Map",
   tabBarIcon: <FontAwesome 
                 name={"map"}
+                size={30}
+                color='black'
+            />,
+};
+MoneyStack.navigationOptions = {
+  tabBarLabel: "Money",
+  tabBarIcon: <FontAwesome 
+                name={"money"}
                 size={30}
                 color='black'
             />,
@@ -129,6 +148,7 @@ _loadData = async() => {
 const TabNavigator = createBottomTabNavigator({
   Home: RootStack,
   Map:MapStack,
+  Money: MoneyStack,
   Logout: LogoutStack,
 });
 
