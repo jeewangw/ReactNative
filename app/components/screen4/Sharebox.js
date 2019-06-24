@@ -9,6 +9,7 @@ import {ImagePicker, Permissions, Constants} from 'expo';
 
 
 import { FontAwesome } from '@expo/vector-icons';
+import { Container, Header, Content, Text, Button, Toast } from "native-base";
 
 
 
@@ -92,9 +93,18 @@ export default class Sharebox extends React.Component {
 
 		  formData.append('photo', { uri: localUri, name: filename, type });
 	
-
+		Alert.alert("Uploading....");
 		var request = new XMLHttpRequest();
 		request.open("POST", "http://jgyawali.000webhostapp.com/awesomeapp/ShareimageAndText.php",true);
+		 request.onreadystatechange = () => {
+		    if(request.readyState === 4){
+		      if(request.status === 200){
+		        alert("UPLOAD DONE");
+		      } else {
+		        alert('ERROR UPLOADING');
+		      }
+		    }
+		  };
 		request.send(formData);
 
 		this.setState({ state_ID__sharebox: "" });

@@ -8,6 +8,7 @@ import {
 	ActivityIndicator,
 } from 'react-native';
 
+import { Container, Header, Content, Item, Input, Icon } from 'native-base';
 
 
 export default class Foreigntxt extends React.Component {
@@ -20,7 +21,7 @@ export default class Foreigntxt extends React.Component {
         	isLoading: false,
             foreignValue: "",
             exchangeValue: 0,
-            convertName:"",
+            convertName:"USD_NPR",
         }
 
     }
@@ -29,6 +30,7 @@ export default class Foreigntxt extends React.Component {
    this.setState({ isLoading: true});
     var {foreignValue} = this.state;
 	var {exchangeValue} = this.state;
+	var {convertName} = this.state;
     return fetch(`https://free.currconv.com/api/v7/convert?q=${this.state.convertName}&compact=ultra&apiKey=cb2a7f25845bd91d2bdd&fbclid=IwAR3BbBArw7aK01eERVEt__reDZ3pctDAIAp07en17otWq3crbsnm2NLEPtQ`)
       .then((response) => response.json())
       .then((responseJson) => {
@@ -37,7 +39,7 @@ export default class Foreigntxt extends React.Component {
           isLoading: false,
           dataSource: responseJson,
         }, function(){
-        	this.setState({ exchangeValue: responseJson.USD_NPR * foreignValue});
+        	this.setState({ exchangeValue: responseJson[convertName] * foreignValue});
 
         });
 
@@ -72,18 +74,21 @@ export default class Foreigntxt extends React.Component {
 					  onValueChange={(itemValue, itemIndex) =>
 					    this.setState({convertName: itemValue})
 					  }>
-					  <Picker.Item label="INR" value="USA_INR" />
 					  <Picker.Item label="USD" value="USD_NPR" />
+					  <Picker.Item label="INR" value="INR_NPR" />
+					  <Picker.Item label="AUD" value="EUR_NPR" />
 				</Picker>
 
-				<TextInput 
-					style={styles.item1TextInput}
-					placeholder={"Foreign Value"}
-					underlineColorAndroid={"transparent"}
-					placeholderTextColor={"#AFAFAF"}
-					onChangeText={(val) => this.setState({ foreignValue: val })}
-					value={this.state.foreignValue}
-				/>
+			
+				<Item>
+		            <Input 
+		            style={{color:'#FFF'}}
+		            placeholder='Foreign Value'
+		            onChangeText={(val) => this.setState({ foreignValue: val })}
+		            value={this.state.foreignValue}
+		            />
+		            <Icon active name='swap' style={{color:'#FFF'}}/>
+		          </Item>
 							<Text style={styles.item1Text} >	
 									
 									NPR: {this.state.exchangeValue}
@@ -107,10 +112,9 @@ const styles = StyleSheet.create({
 	item1TextInput: {
 	    color: 'rgba(255,255,255,1)',
 	    fontSize: 14,
-	    textAlign: 'center',
+	    textAlign: 'left',
 	    width: '100%',
 	    marginBottom:70,
-	    borderWidth:2,
 	    width:'50%',
 	    height:70,
 
@@ -139,19 +143,21 @@ const styles = StyleSheet.create({
 	
 	item1Text: {
 	    color: 'rgba(242,242,242,1)',
-	    fontSize: 14,
+	    fontSize: 20,
 	    textAlign: 'left',
 	    width: '100%',
 	    marginBottom:70,
+	    marginTop:35,
 	},
 	 picker: {
 	color: '#FFF',
     width: "25%",
-    height: 44,
+    height: 80,
     marginBottom:20,
+    fontSize:20,
   },
     pickerItem: {
-    height: 44
+    height: 44,
   },
 	
 });

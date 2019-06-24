@@ -5,6 +5,7 @@ import { AppRegistry, StyleSheet, ActivityIndicator,FlatList,
   	     Platform,} from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail,
  Button, Icon, Left, Body, Right } from 'native-base';
+ import { FontAwesome } from '@expo/vector-icons';
 
 
 export default class Timeline extends React.Component {
@@ -21,6 +22,7 @@ export default class Timeline extends React.Component {
       'Userstatus' :'',
       'Userid':'',
       refresh: false,
+      refreshing:false,
    }
  }
  
@@ -43,6 +45,7 @@ GetItem (status) {
       // let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
        this.setState({
          isLoading: false,
+         refreshing:false,
          //dataSource: ds.cloneWithRows(responseJson),
          dataSource: responseJson,
        }, function() {
@@ -56,13 +59,13 @@ GetItem (status) {
   }
 
   _changed = async() => {
+    var {Username} = this.state;
+    var {Useremail} = this.state;
+    var {Userpassword} = this.state;
+    var {Userstatus} = this.state;
+    var {Userid} = this.state;
+    var {serverLike} = this.state;
 
-    const {Username} = this.state;
-    const  {Useremail} = this.state;
-    const  {Userpassword} = this.state;
-    const {Userstatus} = this.state;
-    const {serverLike} = this.state;
-    const {Userid} = this.state;
 
 
     const formData = new FormData();
@@ -76,12 +79,26 @@ GetItem (status) {
 
     var request = new XMLHttpRequest();
     request.open("POST", "http://jgyawali.000webhostapp.com/awesomeapp/Like.php",true);
+     request.onreadystatechange = () => {
+        if(request.readyState === 4){
+          if(request.status === 200){
+          } else {
+          }
+        }
+      };
     request.send(formData);
 
 
   }
 
-
+handleRefresh = () => {
+this.setState(
+  {refreshing:true},
+  () => {
+  this._fetcher();
+}
+  );
+};
 
  ListViewItemSeparator = () => {
    return (
@@ -109,9 +126,11 @@ GetItem (status) {
 
      <View style={styles.MainContainer}>
 
-       <FlatList
+       <FlatList 
+                    
         extraData={this.state.refresh}
-         data={this.state.dataSource}
+         data={this.state.dataSource.slice(0,11)}
+         initialNumToRender={this.state.dataSource.length}
 
          renderSeparator= {this.ListViewItemSeparator}
          renderItem={({item}) =>
@@ -128,7 +147,7 @@ GetItem (status) {
                     </CardItem>
                     <CardItem>
                       <Body>
-                        <Image source={{ uri: item.folder}} style={{height: 200, width: 200, flex: 1, margin:70}}/>
+                        <Image source={{ uri: item.folder}} style={{height: 200, width: "90%", flex: 1, margin:15}}/>
                         <Text>
                           {item.status}
                         </Text>
@@ -137,33 +156,96 @@ GetItem (status) {
                     <CardItem>
                      <Left>
                 <Button transparent onPress ={ () => {
+              
                 if (item.liked == 0){
                   item.likes ++;
                   item.liked++;     
-                  this.setState({serverLike:item.likes});
-                  this.setState({Username:item.name});
-                  this.setState({Useremail:item.email});
-                  this.setState({Userpassword:item.password});
-                  this.setState({Userstatus:item.status});
-                  this.setState({Userid:item.id});
-                  this.setState({ 
-                                    refresh: !this.state.refresh
-                                })
-                  this._changed();
+                  this.setState({serverLike:item.likes,
+                    Username:item.name,
+                    Useremail:item.email,
+                    Userpassword:item.password,
+                    Userstatus:item.status,
+                    Userid:item.id,
+                    refresh: !this.state.refresh,
+                  }, () => {
+
+                      var {Username} = this.state;
+                      var {Useremail} = this.state;
+                      var {Userpassword} = this.state;
+                      var {Userstatus} = this.state;
+                      var {Userid} = this.state;
+                      var {serverLike} = this.state;
+
+
+
+                      const formData = new FormData();
+                        formData.append('name', Username);
+                          formData.append('email', Useremail);
+                          formData.append('password', Userpassword);
+                          formData.append('status',Userstatus);
+                          formData.append('like',serverLike);
+                          formData.append('id',Userid);
+                    
+
+                      var request = new XMLHttpRequest();
+                      request.open("POST", "http://jgyawali.000webhostapp.com/awesomeapp/Like.php",true);
+                       request.onreadystatechange = () => {
+                          if(request.readyState === 4){
+                            if(request.status === 200){
+                            } else {
+                            }
+                          }
+                        };
+                      request.send(formData);
+
+                  });
+
+                  
 
                 } else{
                   item.likes --;
                   item.liked--;
-                  this.setState({serverLike:item.likes});
-                  this.setState({Username:item.name});
-                  this.setState({Useremail:item.email});
-                  this.setState({Userpassword:item.password});
-                  this.setState({Userstatus:item.status});
-                  this.setState({Userid:item.id});
-                  this.setState({ 
-                                    refresh: !this.state.refresh
-                                })
-                  this._changed();
+                   this.setState({serverLike:item.likes,
+                    Username:item.name,
+                    Useremail:item.email,
+                    Userpassword:item.password,
+                    Userstatus:item.status,
+                    Userid:item.id,
+                    refresh: !this.state.refresh,
+                  },() => {
+
+                      var {Username} = this.state;
+                      var {Useremail} = this.state;
+                      var {Userpassword} = this.state;
+                      var {Userstatus} = this.state;
+                      var {Userid} = this.state;
+                      var {serverLike} = this.state;
+
+
+
+                      const formData = new FormData();
+                        formData.append('name', Username);
+                          formData.append('email', Useremail);
+                          formData.append('password', Userpassword);
+                          formData.append('status',Userstatus);
+                          formData.append('like',serverLike);
+                          formData.append('id',Userid);
+                    
+
+                      var request = new XMLHttpRequest();
+                      request.open("POST", "http://jgyawali.000webhostapp.com/awesomeapp/Like.php",true);
+                       request.onreadystatechange = () => {
+                          if(request.readyState === 4){
+                            if(request.status === 200){
+                            } else {
+                            }
+                          }
+                        };
+                      request.send(formData);
+
+                  }
+
+                  );
                 }
                 }}>
                   <Icon active name="thumbs-up" />
@@ -176,6 +258,8 @@ GetItem (status) {
          }
 
          keyExtractor={({id}, index) => id}
+         refreshing={this.state.refreshing}
+         onRefresh={this.handleRefresh}
        />
 
      </View>
