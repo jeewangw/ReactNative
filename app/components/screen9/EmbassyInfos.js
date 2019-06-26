@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {View, Text} from "react-native";
+import {View, Text, Linking} from "react-native";
 import { Container, Header, Content, Accordion, Collapse, CollapseBody, CollapseHeader} from "accordion-collapse-react-native";
 import { Thumbnail } from 'native-base';
 
@@ -38,7 +38,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-423-4000 </Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-423-4000');}}>+977-1-423-4000 </Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -46,7 +46,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>usembktm@state.gov</Text>
+              <Text onPress={() => Linking.openURL('mailto:usembktm@state.gov') }>usembktm@state.gov</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -63,7 +63,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-441-27-86 </Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-441-27-86');}}>+977-1-441-27-86 </Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -88,7 +88,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-14-237100 </Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-14-237100');}}>+977-14-237100 </Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -96,7 +96,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>BEKathmandu@fco.gov.uk.</Text>
+              <Text onPress={() => Linking.openURL('mailto:BEKathmandu@fco.gov.uk.') } >BEKathmandu@fco.gov.uk.</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -113,7 +113,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-4426-680 </Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-4426-680');}}>+977-1-4426-680 </Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -121,7 +121,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>inquiry-emb@km.mofa.go.jp </Text>
+              <Text onPress={() => Linking.openURL('mailto:inquiry-emb@km.mofa.go.jp') }>inquiry-emb@km.mofa.go.jp </Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -138,7 +138,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-44-23730 </Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-44-23730');}}>+977-1-44-23730 </Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -146,7 +146,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>consularcons.kathmandu@mea.gov.in</Text>
+              <Text onPress={() => Linking.openURL('mailto:consularcons.kathmandu@mea.gov.in') }>consularcons.kathmandu@mea.gov.in</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -163,7 +163,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-422-0939 </Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-422-0939');}}>+977-1-422-0939 </Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -171,7 +171,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>ktm@congensweden.org.np</Text>
+              <Text onPress={() => Linking.openURL('mailto:ktm@congensweden.org.np') }>ktm@congensweden.org.np</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -188,7 +188,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-144-12-332 </Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-144-12-332');}}>+977-144-12-332 </Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -196,7 +196,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>prabinkharel@gmail.com</Text>
+              <Text onPress={() => Linking.openURL('mailto:prabinkharel@gmail.com') }>prabinkharel@gmail.com</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -213,7 +213,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>(+977)-1444-64-00</Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1444-64-00');}}>+977-1444-64-00</Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -221,7 +221,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>r@rkhetan.com</Text>
+              <Text onPress={() => Linking.openURL('mailto:r@rkhetan.com') }>r@rkhetan.com</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -238,7 +238,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-437-1678</Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-437-1678');}}>+977-1-437-1678</Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -246,7 +246,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>austembassy.kathmandu@dfat.gov.au</Text>
+              <Text onPress={() => Linking.openURL('mailto:austembassy.kathmandu@dfat.gov.au') }>austembassy.kathmandu@dfat.gov.au</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -263,7 +263,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-4419389</Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-4419389');}}>+977-1-4419389</Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -271,7 +271,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>chinaemb_np@mfa.gov.cn</Text>
+              <Text onPress={() => Linking.openURL('mailto:chinaemb_np@mfa.gov.cn') }>chinaemb_np@mfa.gov.cn</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -288,7 +288,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-427-0172</Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-427-0172');}}>+977-1-427-0172</Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -296,7 +296,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>konepemb@mofa.go.kr</Text>
+              <Text onPress={() => Linking.openURL('mailto:konepemb@mofa.go.kr') }>konepemb@mofa.go.kr</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -313,7 +313,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-441-1063</Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-441-1063');}}>+977-1-441-1063</Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -321,7 +321,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>ruspos@info.com.np</Text>
+              <Text onPress={() => Linking.openURL('mailto:ruspos@info.com.np') }>ruspos@info.com.np</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -338,7 +338,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-4441976</Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-4441976');}}>+977-1-4441976</Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -346,7 +346,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>kathmandu@international.gc.ca</Text>
+              <Text onPress={() => Linking.openURL('mailto:kathmandu@international.gc.ca') }>kathmandu@international.gc.ca</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -363,7 +363,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>+977-1-4010529</Text>
+              <Text onPress={()=>{Linking.openURL('tel:+977-1-4010529');}}>+977-1-4010529</Text>
             </CollapseBody>
           </Collapse>
           <Collapse style={{flexDirection:'row'}}>
@@ -371,7 +371,7 @@ export default class EmbassyInfos extends Component {
               <Thumbnail source={{uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/1674-200.png'}} />
             </CollapseHeader>
             <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-              <Text>info@altavista.com.np, spanishclub4u@gmail.com</Text>
+              <Text onPress={() => Linking.openURL('mailto:info@altavista.com.np') }>info@altavista.com.np, spanishclub4u@gmail.com</Text>
             </CollapseBody>
           </Collapse>
         </CollapseBody>
@@ -408,7 +408,7 @@ export default class EmbassyInfos extends React.Component {
                  <Thumbnail source={{uri: 'https://cdn3.iconfinder.com/data/icons/trico-circles-solid/24/Circle-Solid-Phone-512.png'}} />
                </CollapseHeader>
                <CollapseBody style={{alignItems:'center',justifyContent:'center',padding:10}}>
-                 <Text>+1 310 346 0018</Text>
+                 <Text onPress={()=>{Linking.openURL('tel:+977-1-44-23730');}}>+1 310 346 0018</Text>
                </CollapseBody>
              </Collapse>
              <Collapse style={{flexDirection:'row'}}>
