@@ -4,7 +4,7 @@ import {
     View,
 } from 'react-native';
 
-import Component1 from './Component1';
+
 import Foreigntxt from './Foreigntxt';
 
 export default class Screen8 extends React.Component {
@@ -84,13 +84,6 @@ export default class Screen8 extends React.Component {
 
                     <View style={styles.screencontainerInner}>
 
-                        <Component1 
-                            navigation={this.props.navigation}
-                            toggleComponent={ (component) => this.toggleComponent(component) }
-                            hideComponent={ (component) => this.hideComponent(component) }
-                            showComponent={ (component) => this.showComponent(component) }
-                            visible={ this.state.Component1Visible }
-                        />
                         <Foreigntxt 
                             navigation={this.props.navigation}
                             toggleComponent={ (component) => this.toggleComponent(component) }

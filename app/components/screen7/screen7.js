@@ -1,19 +1,20 @@
 import React from 'react';
-import {
+import { 
     StyleSheet,
     View,
 } from 'react-native';
 
-import LocationChoose from './LocationChoose';
 
-export default class Screen5 extends React.Component {
+import Weather from './Weather';
+
+export default class Screen8 extends React.Component {
 
     constructor(props) {
 
         super(props);
 
         this.state = {
-            Component1Visible: true,
+            WeatherVisible: true,
         }
 
     }
@@ -73,19 +74,19 @@ export default class Screen5 extends React.Component {
     render() {
         return (
 
-
+            
             <View style={styles.container}>
 
                 <View style={styles.screencontainer}>
 
                     <View style={styles.screencontainerInner}>
 
-                        <LocationChoose
+                        <Weather
                             navigation={this.props.navigation}
                             toggleComponent={ (component) => this.toggleComponent(component) }
                             hideComponent={ (component) => this.hideComponent(component) }
                             showComponent={ (component) => this.showComponent(component) }
-                            visible={ this.state.Component1Visible }
+                            visible={ this.state.WeatherVisible }
                         />
 
                     </View>
@@ -103,14 +104,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-
+    
 	screencontainer: {
-	    backgroundColor: 'rgba(255,255,255,1)',
+	    backgroundColor: '#673ab7',
 	    flex: 1,
 	},
-
+	
 	screencontainerInner: {
 	    flex: 1,
 	},
-
+	
 });

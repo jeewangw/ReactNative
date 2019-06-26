@@ -99,9 +99,9 @@ export default class Sharebox extends React.Component {
 		 request.onreadystatechange = () => {
 		    if(request.readyState === 4){
 		      if(request.status === 200){
-		        alert("UPLOAD DONE");
+		        Alert.alert("Finished Uploading\nRefresh to see latest post");
 		      } else {
-		        alert('ERROR UPLOADING');
+		        Alert.alert('ERROR UPLOADING');
 		      }
 		    }
 		  };
@@ -138,7 +138,7 @@ export default class Sharebox extends React.Component {
                                 <View style={styles.item1}>
 										<TextInput 
 											style={styles.item1TextInput}
-											placeholder={"Share tour pics with the world"}
+											placeholder={"Share your images, stock photos and vectors"}
 											underlineColorAndroid={"transparent"}
 											placeholderTextColor={"#AFAFAF"}
 											onChangeText={(val) => this.setState({ state_ID__sharebox: val })}

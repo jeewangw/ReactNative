@@ -21,7 +21,7 @@ export default class Foreigntxt extends React.Component {
         	isLoading: false,
             foreignValue: "",
             exchangeValue: 0,
-            convertName:"USD_NPR",
+            convertName:"AUD_NPR",
         }
 
     }
@@ -39,7 +39,7 @@ export default class Foreigntxt extends React.Component {
           isLoading: false,
           dataSource: responseJson,
         }, function(){
-        	this.setState({ exchangeValue: responseJson[convertName] * foreignValue});
+        	this.setState({ exchangeValue: Math.round(responseJson[convertName] * foreignValue)});
 
         });
 
@@ -64,35 +64,58 @@ export default class Foreigntxt extends React.Component {
 			     );
 			   }
 
+		   const message1 = <Text style={styles.item1Text} >	
+									
+									NPR: {this.state.exchangeValue}
+							</Text>
+			const message2 = <Text style={styles.item1Text} >	
+										
+								</Text>
+
         
 
         return (
 
-        <View style={{marginLeft:20}}>
+        <View style={{marginLeft:20,marginRight:20,marginTop:150,backgroundColor:'#d1fff0',paddingTop:20,paddingBottom:20,}}>
+        	
+					<Text 
+						style={styles.item1Text}
+					>
+						Nepalese Currency Converter
+					</Text>
+
+
         		<Picker style={styles.picker} itemStyle={styles.pickerItem}
 					  selectedValue={this.state.convertName}
 					  onValueChange={(itemValue, itemIndex) =>
 					    this.setState({convertName: itemValue})
 					  }>
-					  <Picker.Item label="USD" value="USD_NPR" />
-					  <Picker.Item label="INR" value="INR_NPR" />
-					  <Picker.Item label="AUD" value="EUR_NPR" />
+					  <Picker.Item label="Australian Dollar" value="AUD_NPR" />
+					  <Picker.Item label="Chinese Yuan" value="CNY_NPR" />
+					  <Picker.Item label="Euro" value="EUR_NPR" />
+					  <Picker.Item label="Indian Rupee" value="INR_NPR" />
+					  <Picker.Item label="Japanese Yen" value="JPY_NPR" />
+					  <Picker.Item label="South Korean Won" value="KRW_NPR" />
+					  <Picker.Item label="United States Dollar" value="USD_NPR" />
+					  <Picker.Item label="United Arab Emirates Dirham" value="AED_NPR" />
+				 
 				</Picker>
 
 			
 				<Item>
 		            <Input 
-		            style={{color:'#FFF'}}
+		            style={{color:'black'}}
 		            placeholder='Foreign Value'
 		            onChangeText={(val) => this.setState({ foreignValue: val })}
 		            value={this.state.foreignValue}
 		            />
 		            <Icon active name='swap' style={{color:'#FFF'}}/>
 		          </Item>
-							<Text style={styles.item1Text} >	
-									
-									NPR: {this.state.exchangeValue}
-							</Text>
+
+		          <View>
+		                {this.state.exchangeValue == 0 ? message2 : message1}
+		           </View>
+							
 
 							<TouchableOpacity style={styles.item1} onPress={ this._convert } >
 								<Text style={styles.item1TouchableOpacity}>
@@ -142,16 +165,15 @@ const styles = StyleSheet.create({
 	},
 	
 	item1Text: {
-	    color: 'rgba(242,242,242,1)',
-	    fontSize: 20,
-	    textAlign: 'left',
+	    color: 'rgba(255,152,0,1)',
+	    fontSize: 18,
+	    textAlign: 'center',
+	    fontWeight: '300',
 	    width: '100%',
-	    marginBottom:70,
-	    marginTop:35,
 	},
 	 picker: {
-	color: '#FFF',
-    width: "25%",
+	color: 'black',
+    width: "80%",
     height: 80,
     marginBottom:20,
     fontSize:20,

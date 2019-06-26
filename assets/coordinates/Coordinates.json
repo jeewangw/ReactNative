@@ -1,0 +1,145 @@
+
+{
+  "locations" : [
+    {"title": "Bungy Nepal Adventures",
+      "id" : 0,
+      "coordinates": {
+        "latitude": 28.1833427,
+        "longitude": 83.9873957
+      }
+    },
+    {"title": "Kathmandu Fun Valley",
+      "id" : 1,
+      "coordinates": {
+        "latitude": 27.6468951,
+        "longitude": 85.4662804
+      }
+    },
+    {"title": "Sauraha",
+      "id" : 2,
+      "coordinates": {
+        "latitude": 27.5820742,
+        "longitude": 84.4941944
+      }
+    },
+    {"title": "Kathmandu Fun Park",
+      "id" : 3,
+      "coordinates": {
+        "latitude": 27.6740034,
+        "longitude": 85.2366133
+      }
+    },
+    {"title": "WhiteWater Nepal Pvt. Ltd. (Rafting)",
+      "id" : 4,
+      "coordinates": {
+        "latitude": 27.7154808,
+        "longitude": 85.3104816
+      }
+    },
+    {"title": "GRG's Adventure Kayaking",
+      "id" : 5,
+      "coordinates": {
+        "latitude": 27.5820742,
+        "longitude": 84.4941944
+      }
+    },
+    {"title": "Sukute Beach Resort",
+      "id" : 6,
+      "coordinates": {
+        "latitude": 27.715171,
+        "longitude": 85.3102848
+      }
+    },
+    {"title": "Pashupatinath Temple",
+      "id" : 7,
+      "coordinates": {
+        "latitude": 27.7106579,
+        "longitude": 85.3482613
+      }
+    },
+    {"title": "Muktinath Temple",
+      "id" : 8,
+      "coordinates": {
+        "latitude": 28.8167872,
+        "longitude": 83.8706763
+      }
+    },
+    {"title": "Pathibhara Devi Temple",
+      "id" : 9,
+      "coordinates": {
+        "latitude": 27.4289983,
+        "longitude": 87.7682405
+      }
+    },
+    {"title": "Swayambhunath Temple",
+      "id" : 10,
+      "coordinates": {
+        "latitude": 27.7148187,
+        "longitude": 85.2902948
+      }
+    },
+    {"title": "Tal Barahi Temple",
+      "id" : 11,
+      "coordinates": {
+        "latitude": 28.2075812,
+        "longitude": 83.9533427
+      }
+    },
+    {"title": "Janaki Temple",
+      "id" : 12,
+      "coordinates": {
+        "latitude": 26.7303933,
+        "longitude": 85.9256321
+      }
+    },
+    {"title": "Manakamana Temple",
+      "id" : 13,
+      "coordinates": {
+        "latitude": 27.9039949,
+        "longitude": 84.5830714
+      }
+    },
+    {"title": "Poon Hill",
+      "id" : 14,
+      "coordinates": {
+        "latitude": 28.4001445,
+        "longitude": 83.6894716
+      }
+    },
+    {"title": "Everest Base Camp",
+      "id" : 15,
+      "coordinates": {
+        "latitude": 27.7417061,
+        "longitude": 86.7125623
+      }
+    },
+    {"title": "Dhaulagiri",
+      "id" : 16,
+      "coordinates": {
+        "latitude": 28.6984645,
+        "longitude": 83.4785948
+      }
+    },
+    {"title": "Manaslu Circuit Trekking Route",
+      "id" : 17,
+      "coordinates": {
+        "latitude": 28.6101718,
+        "longitude": 84.4645915
+      }
+    },
+    {"title": "Kangchenjunga",
+      "id" : 18,
+      "coordinates": {
+        "latitude": 27.7024594,
+        "longitude":88.1474647
+      }
+    },
+    {"title": "Annapurna Base Camp Trekking ",
+      "id" : 19,
+      "coordinates": {
+        "latitude":28.531252,
+        "longitude": 83.8768846
+      }
+    },
+  ]
+}

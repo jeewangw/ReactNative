@@ -129,8 +129,7 @@ this.setState(
        <FlatList 
                     
         extraData={this.state.refresh}
-         data={this.state.dataSource.slice(0,11)}
-         initialNumToRender={this.state.dataSource.length}
+         data={this.state.dataSource.slice(0,9)}
 
          renderSeparator= {this.ListViewItemSeparator}
          renderItem={({item}) =>

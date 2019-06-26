@@ -5,6 +5,7 @@ import { AppRegistry, StyleSheet, Dimensions, Image, View, StatusBar, TouchableO
 import MapView from 'react-native-maps';
 import Polyline from '@mapbox/polyline';
 import CurrentLocationButton from './location/CurrentLocationButton';
+import * as data from '../../../assets/coordinates/Coordinates.json'
 
 
 export default class Map extends React.Component {
@@ -20,59 +21,15 @@ export default class Map extends React.Component {
       x: 'false',
       cordLatitude:32.7333207,
       cordLongitude:-97.1155631,
-      latitudeDelta:0.01,
-      longitudeDelta:0.01,
-      watchID : null,
-      geoLoc : null,
-      markers: [{
-        title: 'Engineering Research Building',
-        id : 0,
-        coordinates: {
-          latitude: 32.7333207,
-          longitude: -97.1155631
-        },
-      },
-      {
-        title: 'Himalayan Aroma Restaurant',
-        id : 1,
-        coordinates: {
-          latitude: 32.8566795,
-          longitude: -96.995222
-        },
-      },
-      {
-        title: 'Aayush Works Here',
-        id : 2,
-        coordinates: {
-          latitude: 32.6650824,
-          longitude: -97.3345807
-        },
-      }]
+      latitudeDelta:1,
+      longitudeDelta:1,
     };
 
     this.mergeLot = this.mergeLot.bind(this);
-    this.getLocationUpdate();
 
   }
 
-  showLocation(){
-    this.setState({
-      latitude : position.coords.longitude,
-      longitude : position.coords.latitude,
-    });
-    console.log("aayush");
-  }
-  getLocationUpdate() {
-    if(navigator.geolocation){
-      var options = {timeout:600};
-      geoLoc = navigator.geolocation;
-      watchID = geoLoc.watchPosition(() => this.showLocation(), options);
-      this.setState({
-        watchId : watchID,
-        geoLoc : geoLoc,
-      });
-    }
-  }
+
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
@@ -88,7 +45,9 @@ export default class Map extends React.Component {
        { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
      );
 
+
    }
+
 
   mergeLot(){
     if (this.state.latitude != null && this.state.longitude!=null)
@@ -139,19 +98,18 @@ export default class Map extends React.Component {
      }
 
      forDirections(id){
-       console.log(id);
-       console.log(this.state.markers[id].coordinates.latitude);
-       let forDest = this.state.markers[id].coordinates.latitude + "," + this.state.markers[id].coordinates.longitude;
-       this.getDirections(this.state.concat, forDest);
+       let forDest = data.locations[id].coordinates.latitude + "," + data.locations[id].coordinates.longitude;
+       this.getDirections("27.7023909,85.2344515", forDest);
      }
 
 
     render() {
 
-        if (!this.props.visible) {
+      /*  if (!this.props.visible) {
             return false;
-        }
-
+        }*/
+        const {navigation} = this.props;
+        const id = navigation.getParam('id', 'no-id');
 
         return (
 
@@ -172,22 +130,24 @@ export default class Map extends React.Component {
 
 
                          <MapView style={styles.item1} initialRegion={{
-                          latitude:32.7333207,
-                          longitude:-97.1155631,
-                          latitudeDelta: 0.1,
-                          longitudeDelta: 0.1
+                          latitude:data.locations[id].coordinates.latitude,
+                          longitude:data.locations[id].coordinates.longitude,
+                          latitudeDelta: 0.0025,
+                          longitudeDelta:0.0025
                         }}
                         zoomEnabled = {true}
                         ref = {(map) => {this.map = map}}>
 
-                        {this.state.markers.map((marker,index) => (
-                          <MapView.Marker
-                              key = {index}
-                              coordinate = {marker.coordinates}
-                              title = {marker.title}
-                              onPress = {( ) => {this.forDirections(marker.id)}}
-                          />
-                        ))}
+
+                        {data.locations.map((marker,index) => (
+                         <MapView.Marker
+                             key = {index}
+                             coordinate = {marker.coordinates}
+                             title = {marker.title}
+                             onPress = {( ) => {this.forDirections(marker.id)}}
+                         />
+                       ))}
+
 
                         {!!this.state.latitude && !!this.state.longitude && <MapView.Marker
                            coordinate={{"latitude":this.state.latitude,"longitude":this.state.longitude}}
@@ -202,7 +162,8 @@ export default class Map extends React.Component {
                          {!!this.state.latitude && !!this.state.longitude && this.state.x == 'true' && <MapView.Polyline
                               coordinates={this.state.coords}
                               strokeWidth={2}
-                              strokeColor="red"/>
+                              strokeColor="red"
+                              lineCap = "round"/>
                           }
 
 
@@ -212,7 +173,8 @@ export default class Map extends React.Component {
                                 {latitude: this.state.cordLatitude, longitude: this.state.cordLongitude},
                             ]}
                             strokeWidth={2}
-                            strokeColor="red"/>
+                            strokeColor="red"
+                            lineCap = "round"/>
                            }
                     </MapView>
 
