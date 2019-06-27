@@ -110,7 +110,9 @@ const MapStack = createStackNavigator ({
                     screen : Map,
                     navigationOptions: {
                       title: false,
-                      header: null,
+                      headerStyle: {
+                        backgroundColor: "#00ff00"
+                      }
                     }
                   },
                 },{ headerMode: 'screen' });
@@ -141,21 +143,25 @@ const MoreInfoStack = createStackNavigator({
               screen: Screen9,
               navigationOptions: {
                     title: false,
-                    header: null,
+                    header:null,
               }
         },
         EmbassyInfos: {
               screen: EmbassyInfos,
               navigationOptions: {
                     title: false,
-                    header: null,
+                    headerStyle: {
+                      backgroundColor: "#00ff00" 
+                    }
               }
         },
         EmergencyNumbers: {
           screen : EmergencyNumbers,
           navigationOptions: {
                 title: false,
-                header: null,
+                headerStyle: {
+                      backgroundColor: "#00ff00" 
+                    }
           }
         }
 });

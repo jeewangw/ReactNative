@@ -141,5 +141,14 @@
         "longitude": 83.8768846
       }
     },
+    {
+      "title": "Himalayan Aroma",
+      "id": 20,
+      "coordinates": {
+        "latitude": 32.7333207,
+        "longitude" : -97.1155631
+        
+      }
+    }
   ]
 }

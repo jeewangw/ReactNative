@@ -25,7 +25,6 @@ export default class Map extends React.Component {
       longitudeDelta:1,
     };
 
-    this.mergeLot = this.mergeLot.bind(this);
 
   }
 
@@ -38,8 +37,12 @@ export default class Map extends React.Component {
            latitude: position.coords.latitude,
            longitude: position.coords.longitude,
            error: null,
-         });
-         this.mergeLot();
+         }, function(){
+        	this.setState(
+        		{  latitude: position.coords.latitude,
+        			longitude: position.coords.longitude,})}
+        		);
+
        },
        (error) => this.setState({ error: error.message }),
        { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
@@ -49,18 +52,7 @@ export default class Map extends React.Component {
    }
 
 
-  mergeLot(){
-    if (this.state.latitude != null && this.state.longitude!=null)
-     {
-       let concatLot = this.state.latitude +","+this.state.longitude
-       this.setState({
-         concat: concatLot
-       }, () => {
-         this.getDirections(concatLot, "32.7333207,-97.1155631");
-       });
-     }
 
-   }
 
    async getDirections(startLoc, destinationLoc) {
 
@@ -99,7 +91,7 @@ export default class Map extends React.Component {
 
      forDirections(id){
        let forDest = data.locations[id].coordinates.latitude + "," + data.locations[id].coordinates.longitude;
-       this.getDirections("27.7023909,85.2344515", forDest);
+       this.getDirections(this.state.latitude+","+this.state.longitude, forDest);
      }
 
 
@@ -145,6 +137,7 @@ export default class Map extends React.Component {
                              coordinate = {marker.coordinates}
                              title = {marker.title}
                              onPress = {( ) => {this.forDirections(marker.id)}}
+                             pinColor = "#00ff00"
                          />
                        ))}
 
@@ -154,10 +147,7 @@ export default class Map extends React.Component {
                            title={"Your Location"}
                          />}
 
-                         {!!this.state.cordLatitude && !!this.state.cordLongitude && <MapView.Marker
-                            coordinate={{"latitude":this.state.cordLatitude,"longitude":this.state.cordLongitude}}
-                            title={"Your Destination"}
-                          />}
+                         
 
                          {!!this.state.latitude && !!this.state.longitude && this.state.x == 'true' && <MapView.Polyline
                               coordinates={this.state.coords}
