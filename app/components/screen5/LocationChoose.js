@@ -8,13 +8,13 @@ export default class LocationChoose extends Component {
   render() {
     return (
       <Container>
-        <Header />
+        <Header style={{ backgroundColor: "#39aacc", paddingBottom:25, }} />
         <Content>
-          <Card>
-            <Text> Categories </Text>
+          <Card style={{ marginTop:0}}>
+            <Text style={{ fontSize: 25, textAlign:'center',fontWeight:'bold'}}> Categories </Text>
             <CardItem>
               <FontAwesome active name="bell-o" size={25} />
-              <Text onPress = {() => {this.props.navigation.navigate('ReligiousPlaces', {})}}>  Religious Places</Text>
+              <Text onPress = {() => {this.props.navigation.navigate('ReligiousPlaces', {})}}>  Religious Locations</Text>
               <Right>
                 <Icon
                  name="arrow-forward"
@@ -24,7 +24,7 @@ export default class LocationChoose extends Component {
              </CardItem>
              <CardItem>
                <Entypo active name="emoji-happy" size={25}  />
-               <Text onPress = {() => this.props.navigation.navigate('FunPlaces', {})}>  Fun Places      </Text>
+               <Text onPress = {() => this.props.navigation.navigate('FunPlaces', {})}>  Fun Locations      </Text>
                <Right>
                  <Icon
                  name="arrow-forward"
@@ -34,7 +34,7 @@ export default class LocationChoose extends Component {
               </CardItem>
               <CardItem>
                 <Foundation active name="mountains" size={25} />
-                <Text onPress = {() => this.props.navigation.navigate('TrekkingPlaces', {})}>  Trekking Places</Text>
+                <Text onPress = {() => this.props.navigation.navigate('TrekkingPlaces', {})}>  Trekking Locations</Text>
                 <Right>
                   <Icon
                   name="arrow-forward"

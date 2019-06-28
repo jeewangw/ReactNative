@@ -26,7 +26,7 @@ export default class EmbassyInfos extends Component {
   render(){
     return(
       <View>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>USA Embassy</Text>
@@ -51,7 +51,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>German Embassy</Text>
@@ -76,7 +76,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>British Embassy</Text>
@@ -101,7 +101,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Japanese Embassy</Text>
@@ -126,7 +126,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Indian Embassy</Text>
@@ -151,7 +151,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Swedish Embassy</Text>
@@ -176,7 +176,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>French Embassy</Text>
@@ -201,7 +201,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Portugal Embassy</Text>
@@ -226,7 +226,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Australian Embassy</Text>
@@ -251,7 +251,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Chinese Embassy</Text>
@@ -276,7 +276,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>South Korean Embassy</Text>
@@ -301,7 +301,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Russian Embassy</Text>
@@ -326,7 +326,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Canadian Embassy</Text>
@@ -351,7 +351,7 @@ export default class EmbassyInfos extends Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Spain Embassy</Text>

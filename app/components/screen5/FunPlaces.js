@@ -31,12 +31,9 @@ export default class FunPlaces extends React.Component{
          <Content>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Sauraha</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Sauraha</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -64,12 +61,9 @@ export default class FunPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Bungy Nepal Adventure</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Bungy Nepal Adventure</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -93,12 +87,9 @@ export default class FunPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Kathmandu Fun Valley</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Kathmandu Fun Valley</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -127,12 +118,9 @@ export default class FunPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Kathmandu Fun Park</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Kathmandu Fun Park</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -158,12 +146,9 @@ export default class FunPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>WhiteWater Nepal Pvt. Ltd. (Rafting)</Text>
-                 </Body>
-               </Left>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>WhiteWater Nepal Pvt. Ltd. (Rafting)</Text>
+                </Body>
              </CardItem>
              <CardItem>
                <Body>
@@ -188,12 +173,9 @@ export default class FunPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>GRG's Adventure Kayaking</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>GRG's Adventure Kayaking</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -218,12 +200,9 @@ export default class FunPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Sukute Beach Resort</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Sukute Beach Resort</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>

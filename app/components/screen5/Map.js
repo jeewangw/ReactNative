@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { AppRegistry, StyleSheet, Dimensions, Image, View, StatusBar, TouchableOpacity } from "react-native";
+import { Platform, AppRegistry, StyleSheet, Dimensions, Image, View, StatusBar, TouchableOpacity } from "react-native";
 
-
+import * as Location from 'expo-location';
+import Constants from 'expo-constants';
+import * as Permissions from 'expo-permissions';
 import MapView from 'react-native-maps';
 import Polyline from '@mapbox/polyline';
 import CurrentLocationButton from './location/CurrentLocationButton';
@@ -13,14 +15,14 @@ export default class Map extends React.Component {
     super(props);
 
     this.state = {
-      latitude: null,
-      longitude: null,
+      latitude: 32.7333207,
+      longitude: -97.1155631,
       error: null,
       concat: null,
       coords:[],
       x: 'false',
       cordLatitude:32.7333207,
-      cordLongitude:-97.1155631,
+      cordLongitude:-97.1155641,
       latitudeDelta:1,
       longitudeDelta:1,
     };
@@ -28,9 +30,34 @@ export default class Map extends React.Component {
 
   }
 
+    componentWillMount() {
+    if (Platform.OS === 'android' && !Constants.isDevice) {
+      this.setState({
+        errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',
+      });
+    } else {
+      this._getLocationAsync();
+    }
+  }
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      this.setState({
+        errorMessage: 'Permission to access location was denied',
+      });
+    }
+
+    let location = await Location.getCurrentPositionAsync({});
+    const { latitude, longitude } = location.coords;
+    this.setState({   latitude: latitude,
+           longitude: longitude,
+           error: null, });
+  };
 
 
-  componentDidMount() {
+
+ /* componentDidMount() {
     navigator.geolocation.getCurrentPosition(
        (position) => {
          this.setState({
@@ -38,9 +65,7 @@ export default class Map extends React.Component {
            longitude: position.coords.longitude,
            error: null,
          }, function(){
-        	this.setState(
-        		{  latitude: position.coords.latitude,
-        			longitude: position.coords.longitude,})}
+        		alert(this.state.longitude);}
         		);
 
        },
@@ -49,7 +74,7 @@ export default class Map extends React.Component {
      );
 
 
-   }
+   } */
 
 
 
@@ -77,10 +102,10 @@ export default class Map extends React.Component {
 
 
      centerMap() {
-       const latitude = this.state.latitude;
-       const longitude = this.state.longitude;
-       const latitudeDelta = this.state.latitudeDelta;
-       const longitudeDelta = this.state.longitudeDelta;
+       const {latitude} = this.state;
+       const {longitude} = this.state;
+       const {latitudeDelta} = this.state;
+       const {longitudeDelta} = this.state;
        this.map.animateToRegion({
          latitude,
          longitude,

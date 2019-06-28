@@ -9,6 +9,12 @@
       "android",
       "web"
     ],
+    "android": {
+      "package": "com.jeevanaayush.tourinnepal",
+      "permissions": [
+         "ACCESS_FINE_LOCATION"
+      ]
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,6 +30,7 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.jeevanaayush.tourinnepal",
       "supportsTablet": true
     },
     "description": "copyright Jeevan Gyawali"

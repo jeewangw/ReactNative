@@ -8,7 +8,7 @@ export default class EmergencyNumbers extends React.Component {
   render(){
     return(
       <View>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Nepal Tourist Police</Text>
@@ -34,7 +34,7 @@ export default class EmergencyNumbers extends React.Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1,}}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Nepal Tourism Board</Text>
@@ -59,7 +59,7 @@ export default class EmergencyNumbers extends React.Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Trekking Agencies’ Association of Nepal (TAAN)</Text>
@@ -84,7 +84,7 @@ export default class EmergencyNumbers extends React.Component {
           </Collapse>
         </CollapseBody>
       </Collapse>
-      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, top:30}}>
+      <Collapse style={{borderBottomWidth:1,borderTopWidth:1, }}>
         <CollapseHeader style={{flexDirection:'row',alignItems:'center',padding:10,backgroundColor:'#E6E6E6'}}>
           <View style={{width:'60%'}}>
             <Text>Other important Contact Info</Text>

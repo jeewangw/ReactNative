@@ -60,9 +60,10 @@ const styles = StyleSheet.create({
 	    flexWrap: 'wrap',
 	},
 	welcomemsg: {
-		color: '#FF9800',
+		color: '#992e5b',
 		textAlign:'center',
-		fontWeight:'bold',
+		fontStyle:'italic',
+		fontSize:16,
 		marginLeft:20,
 
 	},

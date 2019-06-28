@@ -39,8 +39,8 @@
     {"title": "GRG's Adventure Kayaking",
       "id" : 5,
       "coordinates": {
-        "latitude": 27.5820742,
-        "longitude": 84.4941944
+        "latitude": 27.7152985,
+        "longitude": 85.3068852
       }
     },
     {"title": "Sukute Beach Resort",
@@ -141,13 +141,20 @@
         "longitude": 83.8768846
       }
     },
+    {"title": "Lumbini",
+      "id" : 20,
+      "coordinates": {
+        "latitude":27.5950362,
+        "longitude": 83.0935424
+      }
+    },
     {
-      "title": "Himalayan Aroma",
-      "id": 20,
+      "title": "ERB",
+      "id": 21,
       "coordinates": {
         "latitude": 32.7333207,
         "longitude" : -97.1155631
-        
+
       }
     }
   ]

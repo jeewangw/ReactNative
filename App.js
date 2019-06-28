@@ -61,11 +61,18 @@ const RootStack = createStackNavigator ({
           Screen4: {
                 screen: Screen4,
                 navigationOptions: {
-                    title: false,
-                    header: null,
+                    title: 'Tour in Nepal',
+                
+                     headerStyle: {
+                        backgroundColor: "#39aacc"
+                      },
+                      headerTintColor: '#fff',
+                      headerTitleStyle: {
+                      fontWeight: 'bold',
+                  },
                 }
             }
-        });
+        }, {headerLayoutPreset:'center'});
 
 const LogoutStack = createStackNavigator ({
           Screen3: {
@@ -111,7 +118,7 @@ const MapStack = createStackNavigator ({
                     navigationOptions: {
                       title: false,
                       headerStyle: {
-                        backgroundColor: "#00ff00"
+                        backgroundColor: "#39aacc"
                       }
                     }
                   },
@@ -151,7 +158,7 @@ const MoreInfoStack = createStackNavigator({
               navigationOptions: {
                     title: false,
                     headerStyle: {
-                      backgroundColor: "#00ff00" 
+                      backgroundColor: "#39aacc" 
                     }
               }
         },
@@ -160,7 +167,7 @@ const MoreInfoStack = createStackNavigator({
           navigationOptions: {
                 title: false,
                 headerStyle: {
-                      backgroundColor: "#00ff00" 
+                      backgroundColor: "#39aacc" 
                     }
           }
         }

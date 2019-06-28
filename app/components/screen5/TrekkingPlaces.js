@@ -31,12 +31,9 @@ export default class TrekkingPlaces extends React.Component{
          <Content>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Poon Hill</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Poon Hill</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -68,12 +65,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Everest Base Camp</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Everest Base Camp</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -102,12 +96,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Dhaulagiri Base Camp</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Dhaulagiri Base Camp</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -136,12 +127,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Manaslu Circuit Trek</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Manaslu Circuit Trek</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -171,12 +159,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Kanchenjunga Base Camp Trek</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Kanchenjunga Base Camp Trek</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -205,12 +190,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Annapurna Base Camp Trekking</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Annapurna Base Camp Trekking</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>

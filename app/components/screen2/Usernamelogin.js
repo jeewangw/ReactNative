@@ -63,6 +63,7 @@ export default class Usernamelogin extends React.Component {
 		    this.setState({ Useremail: "" });
 		    this.setState({ Userpassword: "" });
 			Alert.alert(error.toString())
+			return;
 		}
     }
 

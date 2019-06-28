@@ -31,12 +31,9 @@ export default class TrekkingPlaces extends React.Component{
          <Content>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Pashupatinath Temple</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Pashupatinath Temple</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -63,12 +60,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Muktinath Temple</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Muktinath Temple</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -96,12 +90,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Pathibhara Devi Temple</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Pathibhara Devi Temple</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -129,12 +120,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Swayambhunath Temple</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Swayambhunath Temple</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -162,12 +150,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Tal Barahi Temple</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Tal Barahi Temple</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -195,12 +180,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Janaki Temple</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Janaki Temple</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>
@@ -230,12 +212,9 @@ export default class TrekkingPlaces extends React.Component{
            </Card>
            <Card style={{flex: 0}}>
              <CardItem>
-               <Left>
-                 <Thumbnail source={{uri: 'Image URL'}} />
                  <Body>
-                   <Text>Manakamana Temple</Text>
+                   <Text style={{ fontWeight:'bold', fontSize:25}}>Manakamana Temple</Text>
                  </Body>
-               </Left>
              </CardItem>
              <CardItem>
                <Body>

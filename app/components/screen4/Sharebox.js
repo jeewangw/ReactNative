@@ -5,7 +5,8 @@ import {
 	TextInput,AsyncStorage,Alert,
 } from 'react-native';
 
-import {ImagePicker, Permissions, Constants} from 'expo';
+import {Permissions, Constants} from 'expo';
+import * as ImagePicker from 'expo-image-picker';
 
 
 import { FontAwesome } from '@expo/vector-icons';
@@ -140,7 +141,7 @@ export default class Sharebox extends React.Component {
 											style={styles.item1TextInput}
 											placeholder={"Share your images, stock photos and vectors"}
 											underlineColorAndroid={"transparent"}
-											placeholderTextColor={"#AFAFAF"}
+											placeholderTextColor={"#34494f"}
 											onChangeText={(val) => this.setState({ state_ID__sharebox: val })}
 											value={this.state.state_ID__sharebox}
 										/>
@@ -150,7 +151,7 @@ export default class Sharebox extends React.Component {
 					                                } 
 											name={"camera"}
 											size={28}
-											color={"rgba(235,245,251,1)"}
+											color={"black"}
 										/>
 										</View>
 									</View>
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
 	},
 	
 	item1TextInput: {
-	    color: 'rgba(235,245,251,1)',
+	    color: 'black',
 	    fontSize: 14,
 	    textAlign: 'left',
 	    width: '100%',

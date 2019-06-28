@@ -16,7 +16,7 @@ export default class Screen4 extends React.Component {
         super(props);
 
         this.state = {
-            HeaderVisible: true,
+            HeaderVisible: false,
             WelcomemeVisible: true,
             ShareboxVisible: true,
             TimelineVisible: true,
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     },
     
 	screencontainer: {
-	    backgroundColor: 'rgba(134,60,60,1)',
+	    backgroundColor: '#64cded',
 	    flex: 1,
 	},
 	
